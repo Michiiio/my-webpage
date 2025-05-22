@@ -82,17 +82,17 @@
     }
 
     section {
-      padding: 100px 20px;
+      padding: 60px 5vw;
       text-align: center;
       border-radius: 0;
       box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-      min-height: 100vh;      /* Sakop ang buong taas ng screen */
-      width: 100vw;           /* Sakop ang buong lapad ng screen */
-      margin: 0;              /* Alisin ang margin */
+      min-height: 100vh;
+      width: 100vw;
+      margin: 0;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Gitna ang content vertically */
-      align-items: center;     /* Gitna ang content horizontally */
+      justify-content: center;
+      align-items: center;
     }
 
     .home-section {
@@ -150,8 +150,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 3rem;           /* More space between boxes */
-      margin-top: 2.5rem;  /* More space above */
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
     }
 
     .socmed-icon {
@@ -159,9 +160,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 260px;        /* Bigger width */
-      height: 260px;       /* Bigger height */
-      border-radius: 32px; /* More rounded corners */
+      width: 220px;
+      height: 220px;
+      border-radius: 24px;
       background: #fff;
       box-shadow: 0 6px 32px rgba(0,0,0,0.13);
       transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
@@ -169,13 +170,14 @@
       cursor: pointer;
       border: 2px solid transparent;
       font-weight: bold;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #222;
+      margin-bottom: 1.5rem;
     }
 
     .socmed-label {
-      margin-bottom: 22px;
-      font-size: 1.5rem;
+      margin-bottom: 18px;
+      font-size: 1.2rem;
       color: inherit;
       letter-spacing: 1px;
       text-align: center;
@@ -184,16 +186,8 @@
     .socmed-icon svg {
       margin-bottom: 0;
       transition: transform 0.2s;
-      width: 90px;   /* Bigger icon */
-      height: 90px;
-    }
-
-    .socmed-icon:hover,
-    .socmed-icon:focus {
-      transform: translateY(-8px) scale(1.08);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-      background: #e3f2fd;
-      border-color: #90caf9;
+      width: 70px;
+      height: 70px;
     }
 
     .socmed-icon.tiktok:hover svg { filter: drop-shadow(0 0 6px #000); }
@@ -221,6 +215,83 @@
       background: #0d47a1;
       transform: translateY(-2px) scale(1.04);
       box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 900px) {
+      .socmed-links {
+        gap: 1rem;
+      }
+      .socmed-icon {
+        width: 160px;
+        height: 160px;
+        font-size: 1rem;
+      }
+      .socmed-icon svg {
+        width: 48px;
+        height: 48px;
+      }
+      section {
+        padding: 40px 2vw;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem 1rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        align-items: flex-start;
+      }
+      .logo {
+        margin-bottom: 0.5rem;
+      }
+      section {
+        padding: 24px 2vw;
+        min-height: unset;      /* Remove forced height */
+        width: 100%;            /* Use full width */
+      }
+      .socmed-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+      }
+      .socmed-icon {
+        width: 90vw;
+        max-width: 320px;
+        height: 80px;           /* Smaller height for mobile */
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .socmed-label {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      .socmed-icon svg {
+        width: 36px;
+        height: 36px;
+      }
+      h1, h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      button {
+        width: 90vw;
+        max-width: 320px;
+        font-size: 1rem;
+        padding: 10px 0;
+      }
     }
   </style>
 </head>

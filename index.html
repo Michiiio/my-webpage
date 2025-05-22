@@ -376,6 +376,17 @@
 
     /* Responsive styles */
     @media (max-width: 900px) {
+      .hobbies-gallery {
+        gap: 1.5rem;
+      }
+      .hobby-item {
+        width: 45vw;
+        max-width: 220px;
+      }
+      .hobby-item img {
+        width: 120px;
+        height: 120px;
+      }
       .socmed-links {
         gap: 1rem;
       }
@@ -413,8 +424,21 @@
       }
       section {
         padding: 24px 2vw;
-        min-height: unset;      /* Remove forced height */
-        width: 100%;            /* Use full width */
+        min-height: unset;
+        width: 100%;
+      }
+      .hobbies-gallery {
+        gap: 1rem;
+      }
+      .hobby-item {
+        width: 90vw;
+        max-width: 320px;
+      }
+      .hobby-item img {
+        width: 90vw;
+        max-width: 220px;
+        height: 90vw;
+        max-height: 220px;
       }
       .socmed-links {
         flex-direction: column;
@@ -425,7 +449,7 @@
       .socmed-icon {
         width: 90vw;
         max-width: 320px;
-        height: 80px;           /* Smaller height for mobile */
+        height: 80px;
         font-size: 1rem;
         margin-bottom: 0.5rem;
       }

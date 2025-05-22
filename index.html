@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MY WEBPAGE</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f9ff;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: 60px;
+      background-color: #0d47a1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #bbdefb;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s, background 0.3s, border-radius 0.3s;
+      padding: 6px 12px; /* Add padding for better hover effect */
+    }
+
+    .nav-links a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: #bbdefb;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: #fff;
+      background: #1976d2;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      border-radius: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      min-height: 100vh;      /* Sakop ang buong taas ng screen */
+      width: 100vw;           /* Sakop ang buong lapad ng screen */
+      margin: 0;              /* Alisin ang margin */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Gitna ang content vertically */
+      align-items: center;     /* Gitna ang content horizontally */
+    }
+
+    .home-section {
+      background: linear-gradient(135deg, #42a5f5 0%, #478ed1 100%);
+      color: #fff;
+    }
+
+    .about-section {
+      background: #fff;
+      color: #0d47a1;
+    }
+
+    .hobbies-section {
+      background: #e3f2fd;
+      color: #333;
+    }
+
+    .socmed-section {
+      background: #bbdefb;
+      color: #0d47a1;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #0d47a1;
+    }
+
+    p {
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .banner h1 {
+        font-size: 2.5rem;
+      }
+
+      .banner p {
+        font-size: 1rem;
+      }
+    }
+
+    .socmed-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;           /* More space between boxes */
+      margin-top: 2.5rem;  /* More space above */
+    }
+
+    .socmed-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 260px;        /* Bigger width */
+      height: 260px;       /* Bigger height */
+      border-radius: 32px; /* More rounded corners */
+      background: #fff;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.13);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #222;
+    }
+
+    .socmed-label {
+      margin-bottom: 22px;
+      font-size: 1.5rem;
+      color: inherit;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .socmed-icon svg {
+      margin-bottom: 0;
+      transition: transform 0.2s;
+      width: 90px;   /* Bigger icon */
+      height: 90px;
+    }
+
+    .socmed-icon:hover,
+    .socmed-icon:focus {
+      transform: translateY(-8px) scale(1.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      background: #e3f2fd;
+      border-color: #90caf9;
+    }
+
+    .socmed-icon.tiktok:hover svg { filter: drop-shadow(0 0 6px #000); }
+    .socmed-icon.facebook:hover svg { filter: drop-shadow(0 0 6px #1877f3); }
+    .socmed-icon.instagram:hover svg { filter: drop-shadow(0 0 6px #E1306C); }
+
+    button {
+      display: block;
+      margin: 2rem auto 0 auto;
+      padding: 12px 32px;
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover,
+    button:focus {
+      background: #0d47a1;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">MY WEBPAGE</div>
+    <div class="nav-links">
+      <a href="#home" tabindex="0">Home</a>
+      <a href="#aboutme" tabindex="0">About Me</a>
+      <a href="#hobbies" tabindex="0">Hobbies</a>
+      <a href="#socmed" tabindex="0">SocMed</a>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <section class="home-section" id="home">
+    <h1>Welcome to 
+        MY WEBPAGE</h1>
+    <p>Discover more about me, my hobbies, and connect with me on social media. Let’s explore together!</p>
+    <button onclick="document.getElementById('aboutme').scrollIntoView({ behavior: 'smooth' });">
+      Next Page
+    </button>
+  </section>
+
+  <!-- About Me -->
+  <section class="about-section" id="aboutme">
+    <h2>About Me</h2>
+    <p>Hi! I'm a passionate individual who loves learning, building things on the web, and helping others grow through technology and creativity. I enjoy creating beautiful and functional web pages like this one!</p>
+    <button onclick="document.getElementById('hobbies').scrollIntoView({ behavior: 'smooth' });">
+      Next Page
+    </button>
+  </section>
+
+  <!-- Hobbies -->
+  <section class="hobbies-section" id="hobbies">
+    <h2>Hobbies</h2>
+    <p>In my free time, I enjoy photography, coding mini projects, playing guitar, exploring nature, and reading about science and technology.</p>
+    <button onclick="document.getElementById('socmed').scrollIntoView({ behavior: 'smooth' });">
+      Next Page
+    </button>
+  </section>
+
+  <!-- SocMed -->
+  <section class="socmed-section" id="socmed">
+    <h2>Social Media</h2>
+    <div class="socmed-links">
+      <a href="https://www.tiktok.com/@michiiiiiiio?_t=ZS-8wYD44jZ5gQ&_r=1" target="_blank" class="socmed-icon tiktok" aria-label="TikTok">
+        <!-- TikTok SVG Icon -->
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#000"/><path d="M34.5 20.5c-2.5 0-4.5-2-4.5-4.5V10h-4v18.5a3.5 3.5 0 1 1-3.5-3.5h.5v-4h-.5a7.5 7.5 0 1 0 7.5 7.5V22c1.2 1 2.8 1.5 4.5 1.5v-3z" fill="#fff"/></svg>
+        <span class="socmed-label">TikTok</span>
+      </a>
+      <a href="https://www.facebook.com/Michiiiiiio?mibextid=ZbWKwL" target="_blank" class="socmed-icon facebook" aria-label="Facebook">
+        <!-- Facebook SVG Icon -->
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#1877f3"/><path d="M29.5 24h-3v12h-5V24h-2v-4h2v-2c0-2.2 1.3-4 4-4h3v4h-2c-.6 0-1 .4-1 1v1h3l-1 4z" fill="#fff"/></svg>
+        <span class="socmed-label">Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/michiiiiio_?igsh=d2FkeThtemNqZnYy" 
+      target="_blank" class="socmed-icon instagram" aria-label="Instagram">
+        <!-- Instagram SVG Icon -->
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#E1306C"/><g><circle cx="24" cy="24" r="7" fill="#fff"/><circle cx="24" cy="24" r="4" fill="#E1306C"/><circle cx="30" cy="18" r="1" fill="#fff"/></g></svg>
+        <span class="socmed-label">Instagram</span>
+      </a>
+    </div>
+    <p>You can connect with me through social media platforms!</p>
+  </section>
+
+</body>
+</html>

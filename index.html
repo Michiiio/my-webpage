@@ -16,20 +16,73 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f5f9ff;
+      background: #f8f6f0; /* light beige */
       color: #333;
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
+    body.dark-mode {
+      background: #181818;
+      color: #f8f6f0;
+    }
+
+    body.dark-mode nav {
+      background: #222;
+      color: #fff;
+    }
+
+    body.dark-mode .logo {
+      color: #fff;
+    }
+
+    body.dark-mode .nav-links a {
+      color: #fff;
+      background: transparent;
+    }
+
+    body.dark-mode .nav-links a:hover,
+    body.dark-mode .nav-links a:focus {
+      color: #222;
+      background: #fff;
+    }
+
+    body.dark-mode .home-section {
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f8f6f0;
+    }
+
+    body.dark-mode .about-section {
+      background: #232526;
+      color: #ffe082;
+    }
+
+    body.dark-mode .hobbies-section {
+      background: #1e2a28;
+      color: #f8f6f0;
+    }
+
+    body.dark-mode .socmed-section {
+      background: #2a233a;
+      color: #e1bee7;
+    }
+
+    body.dark-mode h2 {
+      color: #ffe082;
+    }
+
+    body.dark-mode .hobby-item div {
+      color: #ffe082;
+    }
+
     nav {
       display: flex;
-      flex-direction: row; /* Ensure horizontal layout */
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       padding: 0 2rem;
       height: 60px;
-      background-color: #0d47a1;
+      background-color: #111; /* Black background */
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
@@ -41,30 +94,32 @@
     .logo {
       font-weight: 700;
       font-size: 1.5rem;
-      color: #fff;
+      color: #fff; /* White text */
       cursor: pointer;
       letter-spacing: 2px;
-      white-space: nowrap; /* Prevents wrapping */
+      white-space: nowrap;
+      flex: 0 0 auto;            /* Prevent logo from stretching */
     }
 
     .nav-links {
       display: flex;
-      flex-direction: row; /* Ensure horizontal links */
+      flex-direction: row;
       gap: 2rem;
-      width: auto;         /* Only as wide as needed */
+      justify-content: flex-end;   /* Align links to the right */
+      align-items: center;
+      flex: 1;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #bbdefb;
+      color: #fff; /* White links */
       font-weight: 600;
       font-size: 1rem;
       position: relative;
       transition: color 0.3s, background 0.3s, border-radius 0.3s;
       padding: 6px 12px;
       display: inline-block;
-      width: 100%; /* Make link fill nav item */
-      text-align: center;
+      text-align: center; /* Center text inside each link */
     }
 
     .nav-links a::after {
@@ -72,7 +127,7 @@
       display: block;
       height: 2px;
       width: 0;
-      background: #bbdefb;
+      background: #fff; /* White underline */
       transition: width 0.3s ease;
       position: absolute;
       bottom: -6px;
@@ -81,8 +136,8 @@
 
     .nav-links a:hover,
     .nav-links a:focus {
-      color: #fff;
-      background: #1976d2;
+      color: #111; /* Black text on hover */
+      background: #fff; /* White background on hover */
       border-radius: 8px;
     }
 
@@ -106,29 +161,29 @@
     }
 
     .home-section {
-      background: linear-gradient(135deg, #42a5f5 0%, #478ed1 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #ffe6e6 0%, #fffbe6 100%);
+      color: #333;
     }
 
     .about-section {
-      background: #fff;
-      color: #0d47a1;
+      background: #fffbe6; /* soft pastel yellow */
+      color: #7b4f00;
     }
 
     .hobbies-section {
-      background: #e3f2fd;
+      background: #e6fff7; /* soft pastel mint */
       color: #333;
     }
 
     .socmed-section {
-      background: #bbdefb;
-      color: #0d47a1;
+      background: #f6e6ff; /* soft pastel lavender */
+      color: #7b4f7b;
     }
 
     h2 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #0d47a1;
+      color: #a67c52;
     }
 
     p {
@@ -228,6 +283,97 @@
       box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
     }
 
+    #toggle-mode {
+      margin-left: 2rem;
+      margin-top: -2px;           
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 0.3s, background 0.3s, border-radius 0.3s;
+      align-items: center;
+      height: 36px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    #toggle-mode:hover,
+    #toggle-mode:focus {
+      color: #111;
+      background: #fff;
+    }
+
+    .hover-highlight {
+      transition: color 0.3s, background 0.3s;
+      cursor: pointer;
+      background: transparent;
+      color: inherit;
+      border-radius: 6px;
+      padding: 2px 4px;
+    }
+
+    .hover-highlight:hover {
+      background: #1976d2;
+      color: #fff;
+    }
+
+    .hobbies-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hobby-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .hobby-item:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+      background: #e3f2fd;
+      border-radius: 18px;
+    }
+
+    .hobby-item img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hobby-item:hover img {
+      transform: scale(1.07);
+      box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+    }
+
+    .hobby-item div {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+      color: #0d47a1;
+      font-weight: 600;
+      text-align: center;
+      transition: color 0.3s;
+    }
+
+    .hobby-item:hover div {
+      color: #1976d2;
+    }
+
     /* Responsive styles */
     @media (max-width: 900px) {
       .socmed-links {
@@ -317,13 +463,18 @@
       <a href="#hobbies" tabindex="0">Hobbies</a>
       <a href="#socmed" tabindex="0">SocMed</a>
     </div>
+    <button id="toggle-mode" aria-label="Toggle light/dark mode" style="margin-left:1rem; background:transparent; color:#fff; border:none; font-size:1.5rem; cursor:pointer; display:flex; align-items:center;">
+      🌙
+    </button>
   </nav>
 
   <!-- Home -->
   <section class="home-section" id="home">
     <h1>Welcome to 
         MY WEBPAGE</h1>
-    <p>Discover more about me, my hobbies, and connect with me on social media. Let’s explore together!</p>
+    <p>Welcome to my personal webpage! I'm excited to have you here. This space is where I share a little about who I am, 
+      the things I love, and how you can connect with me. Whether you're here out of curiosity, friendship, or shared interests, 
+      I hope you enjoy exploring and getting to know me better. Let's begin the journey!!</p>
     <button onclick="document.getElementById('aboutme').scrollIntoView({ behavior: 'smooth' });">
       Next Page
     </button>
@@ -332,7 +483,14 @@
   <!-- About Me -->
   <section class="about-section" id="aboutme">
     <h2>About Me</h2>
-    <p>Hi! I'm a passionate individual who loves learning, building things on the web, and helping others grow through technology and creativity. I enjoy creating beautiful and functional web pages like this one!</p>
+    <p>
+      Hi! I'm someone who finds joy in the little things—like the comfort of a good cup of 
+      <span class="hover-highlight">coffee</span>, 
+      the excitement of a great movie, and the calm presence of cats. I also have a passion for sports 
+      <span class="hover-highlight">motorcycle</span>s; 
+      nothing compares to the thrill of the open road and the roar of the engine. Whether I'm riding, relaxing with my cats, 
+      or enjoying a <span class="hover-highlight">film</span>, I try to balance adventure with cozy moments every day.!
+    </p>
     <button onclick="document.getElementById('hobbies').scrollIntoView({ behavior: 'smooth' });">
       Next Page
     </button>
@@ -341,7 +499,30 @@
   <!-- Hobbies -->
   <section class="hobbies-section" id="hobbies">
     <h2>Hobbies</h2>
-    <p>In my free time, I enjoy photography, coding mini projects, playing guitar, exploring nature, and reading about science and technology.</p>
+    <div class="hobbies-gallery">
+      <div class="hobby-item">
+        <img src="bmw-s1000rr.jpeg" alt="Sportsbike">
+        <div>Sportsbike</div>
+      </div>
+      <div class="hobby-item">
+        <img src="images.jpg" alt="Coffee">
+        <div>Coffee</div>
+      </div>
+      <div class="hobby-item">
+        <img src="download.jpg" alt="Gaming">
+        <div>Gaming</div>
+      </div>
+      <div class="hobby-item">
+        <img src="download (1).jpg" alt="Programming">
+        <div>Programming</div>
+      </div>
+    </div>
+    <p>
+      During my leisure time, I enjoy riding my <span class="hover-highlight">motorcycle</span>, often accompanied by a cup of 
+      <span class="hover-highlight">coffee</span> to enhance the experience. 
+      I also find relaxation and engagement in playing online games. Additionally, I take pleasure in programming whenever I have free time, 
+      as it allows me to explore my creativity and continuously improve my technical skills.
+    </p>
     <button onclick="document.getElementById('socmed').scrollIntoView({ behavior: 'smooth' });">
       Next Page
     </button>
@@ -371,6 +552,21 @@
     <p>You can connect with me through social media platforms!</p>
   </section>
 
+  <script>
+    const toggleBtn = document.getElementById('toggle-mode');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️';
+        toggleBtn.style.color = '#ffe082';
+      } else {
+        toggleBtn.textContent = '🌙';
+        toggleBtn.style.color = '#fff';
+      }
+    });
+  </script>
+
 </body>
 </html>
-``` 
